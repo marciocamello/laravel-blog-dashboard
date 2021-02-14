@@ -12,13 +12,16 @@
         >
           Login
         </router-link>
-        <router-link
-          v-if="isLoggedIn"
-          class="nav-item nav-link"
-          :to="{ name: 'Dashboard' }"
-        >
-          Dashboard
-        </router-link>
+        <li v-for="route in routes" :key="route.name">
+          <router-link
+            v-if="isLoggedIn && route.meta && route.meta.authOnly && route.meta.main"
+            class="nav-item nav-link"
+            active-class=""
+            :to="{ name: route.name }"
+          >
+            {{ route.name }}
+          </router-link>
+        </li>
         <a
           class="nav-item nav-link"
           v-if="isLoggedIn"
@@ -32,12 +35,14 @@
 </template>
 
 <script>
+import routes from "../router/routes";
 import User from "../services/user";
 
 export default {
   data() {
     return {
-      isLoggedIn: false
+      routes,
+      isLoggedIn: false,
     };
   },
 
@@ -56,8 +61,8 @@ export default {
         this.isLoggedIn = false;
         this.$router.push({ name: "Home" });
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

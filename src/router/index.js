@@ -1,30 +1,8 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import Home from "../views/Home.vue"
-import Login from "../views/Login.vue"
-import Dashboard from "../views/Dashboard.vue"
+import routes from './routes'
 
 Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
-    meta: { guestOnly: true }
-  },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Dashboard,
-    meta: { authOnly: true }
-  }
-]
 
 const router = new VueRouter({
   mode: "history",

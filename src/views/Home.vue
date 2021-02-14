@@ -1,11 +1,16 @@
 <template>
-  <div class="py-5 mt-5 text-center home">
-    <h1>Laravel Blog</h1>
-  </div>
+  <container title="Home">
+    <h3>Laravel Blog</h3>
+  </container>
 </template>
 
 <script>
+import Container from "../components/Container";
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Container,
+  },
 }
 </script>

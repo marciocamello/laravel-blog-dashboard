@@ -1,28 +1,28 @@
 <template>
-  <div class="py-5 mx-auto mt-5 home col-8">
-    <h1>Dashboard</h1>
-    <div class="card">
-      <div class="card-body" v-if="user">
-        <h3>Hello, {{ user.name }}</h3>
-        <span>{{ user.email }}</span>
-      </div>
-    </div>
-  </div>
+  <container title="Dashboard" v-if="user">
+    <h3>Hello, {{ user.name }}</h3>
+    <span>{{ user.email }}</span>
+  </container>
 </template>
 
 <script>
+import Container from "../components/Container";
 import User from "../services/user";
 
 export default {
+  components: {
+    Container,
+  },
   data() {
+    Container;
     return {
-      user: null
+      user: null,
     };
   },
   mounted() {
-    User.auth().then(response => {
+    User.auth().then((response) => {
       this.user = response.data;
     });
-  }
+  },
 };
 </script>

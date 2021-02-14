@@ -1,4 +1,4 @@
-# laravel-blog-dashboard
+# Laravel Blog Dashboard
 
 ## Project setup
 ```
